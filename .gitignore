@@ -1,2 +1,5 @@
 target
 .idea
+
+# mac moment
+.DS_Store

@@ -10,10 +10,8 @@ public class RenderLoop implements Runnable {
     @Override
     public void run() {
         GameRenderer renderer = GameEngine.getGame().getGameWindow().getGameRenderer();
-
         while (true) {
             renderer.repaint();
-
             try {
                 Thread.sleep(1000 / Game.FPS);
             } catch (InterruptedException e) {
@@ -21,4 +19,5 @@ public class RenderLoop implements Runnable {
             }
         }
     }
+
 }
