@@ -4,6 +4,7 @@ import engine.Game;
 import engine.GameEngine;
 import engine.rendering.GameRenderer;
 
+@SuppressWarnings("all")
 public class RenderLoop implements Runnable {
 
     @Override

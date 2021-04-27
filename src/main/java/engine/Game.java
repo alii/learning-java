@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Game {
 
-    public static final String NAME = "ballf";
+    public static final String NAME = "Game";
     public static final int FPS = 60;
 
     public static final Random random = new Random();
@@ -19,13 +19,19 @@ public class Game {
 
     private AbstractGamePage currentPage;
 
-    private final HashMap<Pages, AbstractGamePage> cachedAbstractGamePages = new HashMap<>();
-    private final GameWindow gameWindow = new GameWindow();
-    private final Thread gameRenderThread = new Thread(new RenderLoop());
+    private final HashMap<Pages, AbstractGamePage> cachedAbstractGamePages;
+    private final GameWindow gameWindow;
 
     Game() {
         this.currentPage = null;
-        this.gameRenderThread.start();
+
+        gameWindow = new GameWindow();
+        cachedAbstractGamePages = new HashMap<>();
+
+        RenderLoop renderLoop = new RenderLoop();
+        Thread gameRenderThread = new Thread(renderLoop);
+
+        gameRenderThread.start();
     }
 
     public void setCurrentPage(Pages id) {
