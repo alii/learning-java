@@ -9,13 +9,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 
-public class GameWindow extends JFrame {
+public class GameWindow extends JFrame implements Trackable {
 
     private final GameRenderer gameRenderer = new GameRenderer();
 
-    public GameWindow() {
+    private boolean tracked;
+    private final int id;
+
+    public GameWindow(int id) {
         super(Game.NAME);
 
+        this.id = id;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(true);
 
@@ -23,7 +27,6 @@ public class GameWindow extends JFrame {
         this.registerListeners();
         this.add(gameRenderer);
 
-        this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
 
@@ -34,6 +37,17 @@ public class GameWindow extends JFrame {
     public GameRenderer getGameRenderer() {
         return gameRenderer;
     }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean isTrackedBy(ObjectTracker<?, ?> tracker) {
+        return tracker.getTracked().contains(this);
+    }
+
 
     private static class GameWindowMouseListener implements MouseListener {
 

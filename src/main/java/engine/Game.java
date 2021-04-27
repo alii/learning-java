@@ -22,10 +22,10 @@ public class Game {
     private final HashMap<Pages, AbstractGamePage> cachedAbstractGamePages;
     private final GameWindow gameWindow;
 
-    Game() {
+    Game(GameWindow window) {
         this.currentPage = null;
 
-        gameWindow = new GameWindow();
+        this.gameWindow = window;
         cachedAbstractGamePages = new HashMap<>();
 
         RenderLoop renderLoop = new RenderLoop();
@@ -57,4 +57,5 @@ public class Game {
     public GameWindow getGameWindow() {
         return gameWindow;
     }
+
 }
