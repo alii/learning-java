@@ -11,7 +11,7 @@ public class Loading extends AbstractGamePage {
 
     private final Button playButton;
 
-    public Loading(Game game) {
+    public Loading(final Game game) {
         super(game, Pages.LOADING);
 
         this.playButton = new Button(10, 20, 40, 20, "dez nutys");

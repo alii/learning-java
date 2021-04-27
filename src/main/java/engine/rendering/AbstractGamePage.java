@@ -14,7 +14,7 @@ public abstract class AbstractGamePage implements Renderable {
     private final ArrayList<Component> components;
     protected Game game;
 
-    public AbstractGamePage(Game game, Pages id) {
+    public AbstractGamePage(final Game game, Pages id) {
         this.game = game;
         this.id = id;
         this.components = new ArrayList<>();
