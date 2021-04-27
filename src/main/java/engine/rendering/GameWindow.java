@@ -13,7 +13,6 @@ public class GameWindow extends JFrame implements Trackable {
 
     private final GameRenderer gameRenderer = new GameRenderer();
 
-    private boolean tracked;
     private final int id;
 
     public GameWindow(int id) {

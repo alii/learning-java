@@ -52,7 +52,7 @@ public class ObjectTracker<T extends Game, S extends Trackable> {
      * Get a tracked item by its id
      *
      * @param id trackable id {@link Trackable#getId()}
-     * @return
+     * @return item if found, otherwise null
      */
     public synchronized S getTrackedItem(int id) {
         // No streams b/c slow (who knows context of this invocation?) >:(
