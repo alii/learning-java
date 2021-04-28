@@ -1,10 +1,15 @@
 package engine.components;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.awt.*;
 
 public class Button extends Component {
-    private String label;
+
+    @Nullable
     private ButtonClickHandler clickHandler;
+    private String label;
 
     public Button(int x, int y, int width, int height, String label) {
         super(x, y, width, height);
@@ -27,7 +32,7 @@ public class Button extends Component {
         }
     }
 
-    public void setClickHandler(ButtonClickHandler handler) {
+    public void setClickHandler(@NotNull ButtonClickHandler handler) {
         this.clickHandler = handler;
     }
 

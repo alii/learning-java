@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         final Game game = GameEngine.getGame();
-        final ObjectTracker<Game, GameWindow> tracker = new ObjectTracker<>(game);
+        final ObjectTracker<Game, GameWindow> tracker = new ObjectTracker<>();
 
         tracker.addTrackable(game.getGameWindow());
         tracker.getTrackedItem(0).setVisible(true);

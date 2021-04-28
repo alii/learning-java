@@ -14,10 +14,10 @@ public class Loading extends AbstractGamePage {
     public Loading(final Game game) {
         super(game, Pages.LOADING);
 
-        this.playButton = new Button(10, 20, 40, 20, "dez nutys");
-        this.registerComponent(playButton);
+        playButton = new Button(10, 20, 40, 20, "Join Game");
+        registerComponent(playButton);
 
-        this.playButton.setClickHandler(() -> GameEngine.getGame().setCurrentPage(Pages.HOME));
+        playButton.setClickHandler(() -> GameEngine.getGame().setCurrentPage(Pages.HOME));
     }
 
     @Override

@@ -5,6 +5,7 @@ import engine.GameEngine;
 import engine.components.Component;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
@@ -20,7 +21,6 @@ public class GameWindow extends JFrame implements Trackable {
 
         this.id = id;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
 
         this.setSize(1280, 720);
         this.registerListeners();
@@ -52,24 +52,35 @@ public class GameWindow extends JFrame implements Trackable {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            Frame[] frames = GameWindow.getFrames();
+            Frame activeFrame = frames[0];
+
+            int titleBarHeight = activeFrame.getInsets().top;
+
             int x = e.getX();
-            int y = e.getY();
+            int y = e.getY() - titleBarHeight;
 
             List<Component> components = GameEngine.getGame().getCurrentPage().getComponents();
 
-            components.stream().filter(component -> component.isPositionIn(x, y)).forEach(Component::click);
+            components.stream()
+                    .filter(component -> component.isPositionIn(x, y))
+                    .forEach(Component::click);
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {}
+        public void mousePressed(MouseEvent e) {
+        }
 
         @Override
-        public void mouseReleased(MouseEvent e) {}
+        public void mouseReleased(MouseEvent e) {
+        }
 
         @Override
-        public void mouseEntered(MouseEvent e) {}
+        public void mouseEntered(MouseEvent e) {
+        }
 
         @Override
-        public void mouseExited(MouseEvent e) {}
+        public void mouseExited(MouseEvent e) {
+        }
     }
 }

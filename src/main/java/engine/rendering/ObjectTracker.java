@@ -18,15 +18,12 @@ import java.util.Set;
 public class ObjectTracker<T extends Game, S extends Trackable> {
 
     private final Set<S> tracked;
-    private final T game;
 
     /**
      * Create a new tracker
      *
-     * @param game associated game
      */
-    public ObjectTracker(final T game) {
-        this.game = game;
+    public ObjectTracker() {
         this.tracked = new HashSet<>();
     }
 
